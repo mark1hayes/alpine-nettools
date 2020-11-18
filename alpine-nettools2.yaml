@@ -14,12 +14,15 @@ spec:
     tier: app
   type: LoadBalancer
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: alpine-nettools2
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: alpine-nettools2
   template:
     metadata:
       labels:
